@@ -1,0 +1,60 @@
+
+?- use_module(library(clpfd)).
+
+all_different_compounds(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y) :-
+	All = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y],
+	All ins 1..25,
+	all_distinct(All).
+
+solve(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y) :-
+	all_different_compounds(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y),
+	1 #= J mod 2, 
+	(M #= I + 8  ; M #= I - 8 ), 
+	1 #= D mod 2, 
+	0 #= P mod 2, 
+	(A #= C + 2  ; A #= C - 2 ), 
+	(O #= Y + 9  ; O #= Y - 9 ), 
+	0 #= A mod 2, 
+	(L #= A + 4  ; L #= A - 4 ), 
+	0 #= I mod 2, 
+	1 #= E mod 2, 
+	(K #= P + 9  ; K #= P - 9 ), 
+	R #=< U, 
+	(K #= D + 8  ; K #= D - 8 ), 
+	(O #= H + 5  ; O #= H - 5 ), 
+	0 #= T mod 2, 
+	(T #= H + 10  ; T #= H - 10 ), 
+	(U #= W + 17  ; U #= W - 17 ), 
+	0 #= S mod 2, 
+	1 #= G mod 2, 
+	I #>= W, 
+	D #>= S, 
+	(X #= L + 19  ; X #= L - 19 ), 
+	U #>= C, 
+	(G #= B + 5  ; G #= B - 5 ), 
+	P #>= N, 
+	(F #= Y + 15  ; F #= Y - 15 ), 
+	0 #= M mod 2, 
+	G #>= Q, 
+	(E #= N + 16  ; E #= N - 16 ), 
+	0 #= Y mod 2, 
+	(Q #= C + 3  ; Q #= C - 3 ), 
+	J #>= S, 
+	(L #= Q + 1  ; L #= Q - 1 ), 
+	Y #=< X, 
+	(H #= I + 12  ; H #= I - 12 ), 
+	Q #=< J, 
+	0 #= B mod 2, 
+	S #=< X, 
+	R #=< G, 
+	(T #= B + 6  ; T #= B - 6 ), 
+	1 #= Q mod 2, 
+	(E #= U + 4  ; E #= U - 4 ), 
+	E #>= H, 
+	R #>= V,
+	All = [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y],
+	label(All).
+
+main() :- solve(A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y),
+	print(A), print(" "), print(B), print(" "), print(C), print(" "), print(D), print(" "), print(E), print(" "), print(F), print(" "), print(G), print(" "), print(H), print(" "), print(I), print(" "), print(J), print(" "), print(K), print(" "), print(L), print(" "), print(M), print(" "), print(N), print(" "), print(O), print(" "), print(P), print(" "), print(Q), print(" "), print(R), print(" "), print(S), print(" "), print(T), print(" "), print(U), print(" "), print(V), print(" "), print(W), print(" "), print(X), print(" "), print(Y).
+    
